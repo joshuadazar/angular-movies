@@ -1,0 +1,163 @@
+// Standard breakpoints.
+$mobile: 320px;
+$mobile-m: 360px;
+$mobile-l: 415px;
+$tablet: 600px;
+$desktop: 1024px;
+$desktop-m: 1280px;
+$desktop-l: 1440px;
+$desktop-xl: 1600px;
+$desktop-xxl: 1920px;
+$desktop-xxxl: 2560px;
+$landscape: 930px;
+$desktop-landscape: 913px;
+$desktop-portrait: 914px;
+$mobile-landscape-zoom: 250px;
+
+$bps: (
+  'mobile': $mobile,
+  'mobile-m': $mobile-m,
+  'mobile-l': $mobile-l,
+  'tablet': $tablet,
+  'desktop': $desktop,
+  'desktop-m': $desktop-m,
+  'desktop-l': $desktop-l,
+  'desktop-xl': $desktop-xl,
+  'desktop-xxl': $desktop-xxl,
+  'desktop-xxxl': $desktop-xxxl,
+);
+
+// Mixin to override styles depending on the viewport.
+// Use it as @include from(desktop) { ...your styles }.
+@mixin from($media) {
+  $min-width-bp: (map-get($bps, $media) or $media);
+
+  @media only screen and (min-width: $min-width-bp) {
+    @content;
+  }
+}
+
+@mixin fromHeight($height, $media: 'mobile') {
+  $min-width-bp: (map-get($bps, $media) or $media);
+
+  @media only screen and (min-height: $height) and (min-width: $min-width-bp) {
+    @content;
+  }
+}
+
+@mixin upto($media) {
+  $max-width-bp: (map-get($bps, $media) or $media) - 1;
+
+  @media only screen and (max-width: $max-width-bp) {
+    @content;
+  }
+}
+
+@mixin orientation($orientation, $media: 'mobile-l') {
+  $max-height-bp: (map-get($bps, $media) or $media);
+
+  @media only screen and (max-height: $max-height-bp) and (orientation: $orientation) {
+    @content;
+  }
+}
+
+@mixin horizontalPaddings($value) {
+  padding-left: $value;
+  padding-right: $value;
+}
+
+// Standard Stapacing
+$padding-mobile: 72px;
+$padding-tablet: 96px;
+$padding-desktop: 120px;
+$padding-desktop-l: 160px;
+
+// interanl Stapacing
+$internal-padding-mobile: 48px;
+$internal-padding-tablet: 48px;
+$internal-padding-desktop: 72px;
+$internal-padding-desktop-l: 96px;
+
+$spacing: (
+  'mobile': $padding-mobile,
+  'tablet': $padding-tablet,
+  'desktop': $padding-desktop,
+  'desktop-l': $padding-desktop-l,
+);
+
+$internal-spacing: (
+  'mobile': $internal-padding-mobile,
+  'tablet': $internal-padding-tablet,
+  'desktop': $internal-padding-desktop,
+  'desktop-l': $internal-padding-desktop-l,
+);
+
+%generic-padding-bottom {
+  padding-bottom: $padding-mobile;
+
+  @each $name, $value in $spacing {
+    @include from($name) {
+      padding-bottom: $value;
+    }
+  }
+}
+
+%generic-padding-top {
+  padding-top: $padding-mobile;
+
+  @each $name, $value in $spacing {
+    @include from($name) {
+      padding-top: $value;
+    }
+  }
+}
+
+%internal-padding-bottom {
+  padding-bottom: $internal-padding-mobile;
+
+  @each $name, $value in $internal-spacing {
+    @include from($name) {
+      padding-bottom: $value;
+    }
+  }
+}
+
+%internal-padding-top {
+  padding-top: $padding-mobile;
+
+  @each $name, $value in $internal-spacing {
+    @include from($name) {
+      padding-top: $value;
+    }
+  }
+}
+
+%internal-margin-bottom {
+  margin-bottom: $internal-padding-mobile;
+
+  @each $name, $value in $internal-spacing {
+    @include from($name) {
+      margin-bottom: $value;
+    }
+  }
+}
+
+%internal-margin-top {
+  margin-top: $padding-mobile;
+
+  @each $name, $value in $internal-spacing {
+    @include from($name) {
+      margin-top: $value;
+    }
+  }
+}
+
+%generic-margin-bottom {
+  margin-bottom: $padding-mobile;
+
+  @each $name, $value in $spacing {
+    @include from($name) {
+      margin-bottom: $value;
+    }
+  }
+}

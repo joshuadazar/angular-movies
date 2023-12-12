@@ -1,3 +1,5 @@
-<ul>
-    <li *ngFor="let movie of movieList">{{movie.title}}</li>
-</ul>
+<section class="page-content">
+  @for (movie of movieList; track $index) {
+    <card-component [movie]="movie"/>
+  }
+</section>
