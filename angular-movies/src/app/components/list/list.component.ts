@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CardComponent } from '../card/card.component';
 import { Store } from '../../services/movies';
 import { Imovie } from '../../models/imovies';
+import { Storage, ref, uploadBytes, listAll, getDownloadURL } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-list',
@@ -13,15 +14,13 @@ import { Imovie } from '../../models/imovies';
 })
 export class ListComponent implements OnInit {
 
-
-
   constructor(
-    private ds$: Store
-  ){}
+    private ds$: Store,
+    private storage: Storage,
 
-  ngOnInit(): void {
-    this.ds$.setMovies(this.movieList);
-  }
+  ) { }
+
+  images: string[] = [];
 
   public movieList: Imovie[] = [
     {
@@ -69,6 +68,33 @@ export class ListComponent implements OnInit {
       releasedDate: "01/05/2015",
       trailerLink: "https://www.youtube.com/watch?v=tmeOjFno6Do"
     }
-    
+
   ];
+
+  ngOnInit(): void {
+    this.ds$.setMovies(this.movieList);
+    this.getImages();
+  }
+
+  getImages() {
+    const imagesRef = ref(this.storage, 'movies');
+
+    listAll(imagesRef)
+      .then(async response => {
+        console.log(response);
+        this.images = [];
+        for (let item of response.items) {
+          const url = await getDownloadURL(item);
+          console.log(url, 'url');
+          if (url.includes('.webp')) {
+            this.images.push(url);
+          }
+
+        }
+        console.log(this.images, 'imagenes');
+        this.movieList.forEach((movie, index) => { movie.image = this.images[index]; });
+        console.log(this.movieList, 'movies');
+      })
+      .catch(error => console.log(error));
+  }
 }

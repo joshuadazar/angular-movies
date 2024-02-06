@@ -1,8 +1,7 @@
-<div class="card">
+<div class="card" style="background-image: url({{movie?.image}});">
   <div class="content">
-    
-    <h2 class="title" maxText>{{movie?.title}} </h2>
-    <p class="copy" maxText>{{movie?.description}}</p>
+    <h2 class="title">{{movie?.title}} </h2>
+    <p class="copy">{{movie?.description}}</p>
     <small>Rating: <b>{{movie?.rating}}</b></small>
     <small>Duration: <b> {{movie?.duration}}</b></small>
     <a [href]="movie?.trailerLink" class="btn">Watch the Trailer</a>
