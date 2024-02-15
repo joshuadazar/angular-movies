@@ -1,0 +1,62 @@
+.btn-like {
+  display: flex;
+  border-radius: 25px;
+  background-color: #272727;
+  height: 35px;
+  width: 150px;
+
+  button {
+    align-items: center;
+    background: #272727;
+    border: none;
+    color: silver;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin: 0 5px;
+    }
+
+    &:hover {
+      background: #3f3f3f;
+    }
+  }
+
+  .like {
+    border-radius: 25px 0 0 25px;
+  }
+
+  .dislike {
+    border-radius: 0 25px 25px 0;
+
+    img {
+      transform: rotateZ(180deg);
+    }
+  }
+
+  .split {
+    height: 100%;
+    width: 2px;
+    background-color: silver;
+  }
+
+  .like-score {
+    animation: slide-up 0.7s ease-out;
+  }
+
+  @keyframes slide-up {
+    0% {
+      opacity: 0.2;
+      transform: translateY(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

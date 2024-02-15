@@ -1,0 +1,12 @@
+<div class="btn-like">
+  <button class="like" (click)="addLike()">
+    <img src="../../../assets/like.png" alt="line icon">
+
+    <p [class.like-score]="estado">{{likes}}</p>
+  </button>
+  <span class="split"></span>
+  <button class="dislike">
+    <img src="../../../assets/like.png" alt="line icon">
+  </button>
+
+</div>
