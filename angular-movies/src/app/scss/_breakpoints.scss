@@ -15,16 +15,16 @@ $desktop-portrait: 914px;
 $mobile-landscape-zoom: 250px;
 
 $bps: (
-  'mobile': $mobile,
-  'mobile-m': $mobile-m,
-  'mobile-l': $mobile-l,
-  'tablet': $tablet,
-  'desktop': $desktop,
-  'desktop-m': $desktop-m,
-  'desktop-l': $desktop-l,
-  'desktop-xl': $desktop-xl,
-  'desktop-xxl': $desktop-xxl,
-  'desktop-xxxl': $desktop-xxxl,
+  "mobile": $mobile,
+  "mobile-m": $mobile-m,
+  "mobile-l": $mobile-l,
+  "tablet": $tablet,
+  "desktop": $desktop,
+  "desktop-m": $desktop-m,
+  "desktop-l": $desktop-l,
+  "desktop-xl": $desktop-xl,
+  "desktop-xxl": $desktop-xxl,
+  "desktop-xxxl": $desktop-xxxl,
 );
 
 // Mixin to override styles depending on the viewport.
@@ -37,7 +37,7 @@ $bps: (
   }
 }
 
-@mixin fromHeight($height, $media: 'mobile') {
+@mixin fromHeight($height, $media: "mobile") {
   $min-width-bp: (map-get($bps, $media) or $media);
 
   @media only screen and (min-height: $height) and (min-width: $min-width-bp) {
@@ -53,7 +53,7 @@ $bps: (
   }
 }
 
-@mixin orientation($orientation, $media: 'mobile-l') {
+@mixin orientation($orientation, $media: "mobile-l") {
   $max-height-bp: (map-get($bps, $media) or $media);
 
   @media only screen and (max-height: $max-height-bp) and (orientation: $orientation) {
@@ -79,17 +79,17 @@ $internal-padding-desktop: 72px;
 $internal-padding-desktop-l: 96px;
 
 $spacing: (
-  'mobile': $padding-mobile,
-  'tablet': $padding-tablet,
-  'desktop': $padding-desktop,
-  'desktop-l': $padding-desktop-l,
+  "mobile": $padding-mobile,
+  "tablet": $padding-tablet,
+  "desktop": $padding-desktop,
+  "desktop-l": $padding-desktop-l,
 );
 
 $internal-spacing: (
-  'mobile': $internal-padding-mobile,
-  'tablet': $internal-padding-tablet,
-  'desktop': $internal-padding-desktop,
-  'desktop-l': $internal-padding-desktop-l,
+  "mobile": $internal-padding-mobile,
+  "tablet": $internal-padding-tablet,
+  "desktop": $internal-padding-desktop,
+  "desktop-l": $internal-padding-desktop-l,
 );
 
 %generic-padding-bottom {

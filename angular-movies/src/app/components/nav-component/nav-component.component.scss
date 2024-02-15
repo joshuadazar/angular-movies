@@ -1,0 +1,107 @@
+@import "../../scss/index.scss";
+
+.navbar {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+  padding: 20px;
+  position: relative;
+
+  @include upto(mobile-l) {
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-areas:
+      "logo"
+      "search"
+      "menu"
+      "user";
+  }
+
+  @include from(mobile-l) {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+      "logo logo logo"
+      "search search search"
+      "menu menu user";
+  }
+
+  @include from(desktop) {
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas:
+      "logo menu user"
+      "search search search";
+    font-size: 1.3rem;
+  }
+
+  &__logo {
+    grid-area: logo;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    gap: 1rem;
+
+    @include from(desktop) {
+      justify-self: left;
+    }
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    &-title {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+    }
+  }
+
+  &__menu {
+    grid-area: menu;
+    display: grid;
+    align-self: center;
+    justify-self: left;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+
+      li {
+        margin-right: 20px;
+
+        a {
+          color: #fff;
+          text-decoration: none;
+
+          &:hover {
+            color: #ddd;
+          }
+        }
+      }
+    }
+  }
+
+  &__search {
+    grid-area: search;
+
+    input {
+      padding: 10px;
+      width: 100%;
+    }
+  }
+
+  &__user {
+    grid-area: user;
+    align-self: center;
+    justify-self: left;
+    a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 20px;
+
+      &:hover {
+        color: #ddd;
+      }
+    }
+  }
+}

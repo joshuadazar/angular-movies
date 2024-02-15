@@ -1,0 +1,34 @@
+@import "../../scss/index.scss";
+
+.hero {
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/movies-1e4c2.appspot.com/o/movies%2FGuardians_of_The_Galaxy.png?alt=media&token=38c3b49e-5ac8-4f84-936f-c5a0d64f6");
+  background-color: #333;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  position: relative;
+  padding-bottom: 1rem;
+
+  :not(.modal-hero) {
+    z-index: 1;
+  }
+
+  .modal-hero {
+    background: rgba($color: #000000, $alpha: 0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+  }
+
+  &-title {
+    text-align: center;
+    position: relative;
+    z-index: 0;
+
+    @include upto(desktop) {
+      display: none;
+    }
+  }
+}
