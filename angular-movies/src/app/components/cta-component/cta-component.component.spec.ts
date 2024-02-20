@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CtaComoponentComponent } from './cta-comoponent.component';
+import { CtaComoponentComponent } from './cta-component.component';
 
 describe('CtaComoponentComponent', () => {
   let component: CtaComoponentComponent;
@@ -10,8 +10,8 @@ describe('CtaComoponentComponent', () => {
     await TestBed.configureTestingModule({
       imports: [CtaComoponentComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(CtaComoponentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

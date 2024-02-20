@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { CtaComoponentComponent } from '../cta-comoponent/cta-comoponent.component';
+import { CtaComponentComponent } from '../cta-component/cta-component.component';
 import { NavComponentComponent } from '../nav-component/nav-component.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CtaComoponentComponent, NavComponentComponent],
+  imports: [CtaComponentComponent, NavComponentComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

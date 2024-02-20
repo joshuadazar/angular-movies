@@ -6,11 +6,11 @@ import { Component } from '@angular/core';
   selector: 'app-cta-comoponent',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './cta-comoponent.component.html',
-  styleUrl: './cta-comoponent.component.scss',
+  templateUrl: './cta-component.component.html',
+  styleUrl: './cta-component.component.scss',
 
 })
-export class CtaComoponentComponent {
+export class CtaComponentComponent {
 
   likes: number = 0;
   estado: boolean = false;
