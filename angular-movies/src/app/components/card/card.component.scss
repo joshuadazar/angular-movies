@@ -102,7 +102,7 @@
 
       @include from(tablet) {
         display: -webkit-box;
-        -webkit-line-clamp: 3; /* Limita el texto a 2 líneas */
+        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
