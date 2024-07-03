@@ -1,1 +1,6 @@
-<p>state1 works!</p>
+<h2>Contador: {{ count$ | async }}</h2>
+<input #valor type="text" />
+<button (click)="increment()">Incrementar</button>
+<button (click)="decrement()">Decrementar</button>
+<button (click)="incrementBy()">Sumar valor</button>
+<button (click)="reset()">Resetear</button>

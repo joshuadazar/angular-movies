@@ -3,13 +3,13 @@ import { provideRouter } from '@angular/router';
 import { firebaseProviders } from './firebase.config';
 
 import { routes } from './app.routes';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { getStorage, provideStorage } from '@angular/fire/storage';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { provideStore } from '@ngrx/store';
+import { counterReducer } from './Store/counter.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    firebaseProviders,
+    //firebaseProviders,
+    provideStore({ counter: counterReducer })
   ],
 };
